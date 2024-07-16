@@ -28,3 +28,14 @@ export type ReducerCartType = {
   cart: cartType[];
   setcart: Dispatch<SetStateAction<cartType[]>>;
 };
+
+export type AuthRegisterProps = {
+  email: string;
+  password: string;
+  confirmPassword: string;
+  firstName: string;
+  lastName: string;
+  pseudo: string;
+  address: string;
+  phone: string;
+};
