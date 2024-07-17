@@ -17,27 +17,52 @@ export const LoginForm = () => {
   } = useForm<AuthLoginProps>({ mode: "onChange" });
 
   const onSubmit: SubmitHandler<AuthLoginProps> = (data) => {
-    login(data).then((res: any) => {
-      // console.log("Response from login:", res);
-      if (res.status === 201) {
-        if (typeof window !== "undefined") {
-          console.log(res.data);
+    login(data)
+      .then((res: any) => {
+        // if (res.status === 403) {
+        //   alert("Valider votre mail pour activer votre compte");
+        // }
 
-          window.localStorage.setItem("sub", res.data.token);
-          // console.log("User data:", res.data);
-          const role = res.data.role;
-          toast.success("Connexion réussie");
-          console.log(role);
-          if (role !== 2) {
-            toast.success("Vous ètes Utilisateur");
-            push("/ecommerce");
-          } else {
-            toast.success("Vous ètes Administrateur");
-            push("/admin");
+        if (res.status === 201) {
+          if (typeof window !== "undefined") {
+            console.log(res.data);
+            window.localStorage.setItem("token", res.data.token);
+            // console.log("User data:", res.data);
+            const role = res.data.role;
+            toast.success("Connexion réussie");
+            console.log(role);
+            if (role !== 2) {
+              toast.success("Vous ètes Utilisateur");
+              push("/ecommerce");
+            } else {
+              toast.success("Vous ètes Administrateur");
+              push("/admin");
+            }
           }
         }
-      }
-    });
+      })
+      .catch((error) => {
+        if (error.response) {
+          if (error.response.status === 403) {
+            if (
+              error.response.data &&
+              error.response.data.message === "User account is deactivated"
+            ) {
+              toast.error("Valider votre mail pour activer votre compte");
+            } else {
+              toast.error("Invalid credentials");
+            }
+          } else {
+            toast.error("An unexpected error occurred");
+          }
+        } else {
+          if (error.message && error.message.includes("403")) {
+            toast.error("Valider votre mail pour activer votre compte");
+          } else {
+            toast.error("An unexpected error occurred");
+          }
+        }
+      });
   };
 
   return (
