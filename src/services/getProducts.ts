@@ -8,4 +8,5 @@ const axiosCreate = axios.create({
 });
 
 export const getAllProducts = axiosCreate.get("product/all");
-export const getOneProduct = (id: number) => axiosCreate.get(`/products/${id}`);
+export const getOneProduct = (id: number) =>
+  axiosCreate.get(`/product/one/${id}`);
