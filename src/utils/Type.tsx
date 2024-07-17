@@ -39,3 +39,8 @@ export type AuthRegisterProps = {
   address: string;
   phone: string;
 };
+
+export type AuthLoginProps = {
+  email: string;
+  password: string;
+};
