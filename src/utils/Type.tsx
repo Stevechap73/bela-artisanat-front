@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 
 export type productType = {
-  id: number;
+  id?: number;
   title: string;
   description: string;
   image: string;
@@ -43,4 +43,21 @@ export type AuthRegisterProps = {
 export type AuthLoginProps = {
   email: string;
   password: string;
+};
+
+export type RoleType = {
+  id?: number;
+  name: string;
+};
+
+export type UserType = {
+  id?: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+};
+
+export type CategoryType = {
+  id?: number;
+  name: string;
 };
