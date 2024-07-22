@@ -2,11 +2,10 @@
 import React, { useState, useEffect, ChangeEvent } from "react";
 import { Container, Box, Button, Modal, TextField } from "@mui/material";
 import Sidebar from "@/components/Sidebar";
-import Header2 from "@/components/Header2";
 import CustomTable from "@/components/CustomTable";
-// import { getAllRoles, addRole, updateRole, deleteRole } from "@/services/roles";
 import { RoleType } from "@/utils/Type";
 import { addRole, deleteRole, getAllRoles, updateRole } from "@/services/role";
+import Header2 from "@/components/Header2";
 
 const ManageRoles = () => {
   const [roles, setRoles] = useState<RoleType[]>([]);

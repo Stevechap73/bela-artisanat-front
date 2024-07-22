@@ -1,4 +1,3 @@
-// import ProductDetail from "@/components/ProductDetail";
 import ProductDetail from "@/components/ProductDetail";
 import React from "react";
 

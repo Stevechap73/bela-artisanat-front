@@ -50,9 +50,6 @@ const Cartproduct = ({ article }: { article: cartType }) => {
         </div>
         <p className="font-normal text-base leading-7 text-gray-500 mb-6">
           {article.product?.description}
-          <a href="javascript:;" className="text-indigo-600">
-            More....
-          </a>
         </p>
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-4">
@@ -108,7 +105,7 @@ const Cartproduct = ({ article }: { article: cartType }) => {
             </button>
           </div>
           <h6 className="text-indigo-600 font-manrope font-bold text-2xl leading-9 text-right">
-            ${article.product?.price}
+            ${article.product?.price * article?.quantity}
           </h6>
         </div>
       </div>

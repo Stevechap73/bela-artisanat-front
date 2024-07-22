@@ -19,14 +19,12 @@ export const LoginForm = () => {
   const onSubmit: SubmitHandler<AuthLoginProps> = (data) => {
     login(data)
       .then((res: any) => {
-        // if (res.status === 403) {
-        //   alert("Valider votre mail pour activer votre compte");
-        // }
-
         if (res.status === 201) {
           if (typeof window !== "undefined") {
             console.log(res.data);
             window.localStorage.setItem("token", res.data.token);
+            console.log("token", res.data.token);
+
             // console.log("User data:", res.data);
             const role = res.data.role;
             toast.success("Connexion réussie");

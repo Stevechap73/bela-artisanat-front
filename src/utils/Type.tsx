@@ -4,7 +4,7 @@ export type productType = {
   id?: number;
   title: string;
   description: string;
-  image: string;
+  image: string; // | file
   price: number;
   categoryId: number;
   status: string;
@@ -55,6 +55,11 @@ export type UserType = {
   firstName: string;
   lastName: string;
   email: string;
+  pseudo: string;
+  password?: string;
+  address: string;
+  phone: string;
+  roleId: number;
 };
 
 export type CategoryType = {

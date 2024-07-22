@@ -1,4 +1,5 @@
 "use client";
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { RegisterForm } from "@/components/registerForm";
 import React from "react";
@@ -8,6 +9,7 @@ const page = () => {
     <div>
       <Header />
       <RegisterForm />
+      <Footer />
     </div>
   );
 };

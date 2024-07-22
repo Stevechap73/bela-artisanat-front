@@ -23,9 +23,6 @@ const Sidebar = () => {
         <ListItem button component={Link} href="/admin/products">
           <ListItemText primary="Manage Products" />
         </ListItem>
-        <ListItem button component={Link} href="/admin/settings">
-          <ListItemText primary="Settings" />
-        </ListItem>
       </List>
     </div>
   );
